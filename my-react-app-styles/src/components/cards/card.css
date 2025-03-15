@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.head {
+    text-align: center;
+    padding: 8px;
+    width: 250px;
+    height: 110px;
+    border-top: 1px dotted black;
+}
+
+.head img{
+    border-radius: 50%;
+    width: 80px;
+    object-fit: fill;
+}
+
+.body {
+    padding: 8px;
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+}
+
+.body button {
+    margin-top: 8px;
+    margin-left: 100px;
+    background: lightblue;
+}

@@ -1,6 +1,9 @@
 import { useState } from "react";
+import ToggleButton from "./Toggle";
+import { useNavigate } from "react-router-dom";
+
 const stock = 100
-const CarShopping = () => {
+const ShoppingCar = () => {
 
     const [count, setCount] = useState(0)
     const [shoppingCart, setShoppingCart] = useState(0)
@@ -13,20 +16,31 @@ const CarShopping = () => {
         setShoppingCart(prevShopping => (prevShopping > 0 ? prevShopping - 1: prevShopping))
     }
 
+    const navigate = useNavigate();
+    const home = () => {
+        navigate('/');
+    }
+
     return (
         <div>
-            <p>Carrito de compras: {shoppingCart} <button onClick={deleteShopping}>Cancelar una compra</button></p>
+            <nav>
+                <button onClick={home}>🏠</button>
+            </nav>
+            <h1>SHOPPING CAR</h1>
+            <p>Carrito de compras: {shoppingCart} <button style={{backgroundColor: 'pink'}} onClick={deleteShopping}>Cancelar una compra</button></p>
             <h3>Papitas de Limon</h3>
             <div>
                 <button onClick={decrement}>-</button>
                     Cantidad: {count} 
                 <button onClick={() => setCount(count + 1)}>+</button>
             </div>
-            <button onClick={() => setShoppingCart(shoppingCart + 1)}>Comprar</button>
+            <button style={{backgroundColor: 'lightgreen'}} onClick={() => setShoppingCart(shoppingCart + 1)}>Comprar</button>
             <p> Stock: {stock-count} </p>
+
+            <ToggleButton />
         </div>
     )
 
 }
 
-export default CarShopping;
+export default ShoppingCar;
